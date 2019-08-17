@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="styles.css" rel="stylesheet" />
+  <link href="fonts/fontStyles.css" rel="stylesheet" />
+  <link rel="icon" href="images/icon.jpg">
+  <title>Vaporwave</title>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        
+        //tells nav links where to scroll to
+        $('nav ul li a').click(function(e) {
+            e.preventDefault();
+            var target = $($(this).attr('href')).position().top;
+            $('html,body').stop().animate({ 
+                scrollTop: target 
+            },{ 
+                duration: 900 
+            });
+        }); 
+        
+        //makes gifs only run when scrolling to not distract reading
+        $(window).on('scroll', function() {
+            $('.wow').css('background-image', 'url(images/great.gif)');
+            $('.wow2').css('background-image', 'url(images/wow.gif)');
+            $('.wow3').css('background-image', 'url(images/super.gif)');
+            $('.wow4').css('background-image', 'url(images/simp.gif)');
+        });
+        
+        //creates a timer to check when page is not being scrolled
+        //if  not, gif becomes a .jpg
+        (function () {        
+            var scrollTimer;
+            $(window).bind('scroll',function () {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(scrollRefresh , 150);
+            });
+            var scrollRefresh = function () { 
+                $('.wow').css('background-image', 'url(stills/great.jpg)');
+                $('.wow2').css('background-image', 'url(stills/wow.jpg)');
+                $('.wow3').css('background-image', 'url(stills/super.jpg)');
+                $('.wow4').css('background-image', 'url(stills/simp.jpg)');
+            };
+        })();
+        
+        //ensures volume matches value of slider
+        $('#landMusic').prop("volume", 0.5);
+        
+        //switch between pause/play icons and play/pause sounds on click
+        function handler1() {
+            $('#landMusic').trigger("play");
+            $(this).attr('data-icon', 'e');
+            $(this).one("click", handler2);
+        }
+        function handler2() {
+            $('#landMusic').trigger("pause");
+            $(this).attr('data-icon', 'a');
+            $(this).one("click", handler1);
+        }
+        $('#musicButton').one("click", handler1);
+        
+        //change sound linked to the play button, uses element id as song name
+        $('.songlink').click(function(){
+            $('#musicButton').attr('data-icon', 'a');
+            $('#musicButton').one("click", handler1);
+            $('#landMusic').trigger("pause");
+            var name = $(this).attr('id');
+            $('#landMusic').attr('src', 'sounds/'+name+'.mp3'); 
+        });
+        
+        //changes sound volume based on slider value
+        $('.slider').on('change', function() {
+            $('#landMusic').prop("volume", this.value/100);
+        });
+        
+        //sets var pic to 1
+        var pic = 1;
+        
+        //shows the first image using string concatenation
+        $('#slide'+pic).show();
+        
+        //when left or right button is pressed, current image is faded out, pic is increased by 1,
+        //and next image is faded in
+        $('#left').click(function(){
+            $('#slide'+pic).stop().fadeOut('fast', function(){
+                if(pic == 4) {
+                    pic = 1;
+                } else {
+                pic++;  
+                }
+                $('#slide'+pic).stop().fadeIn('fast');
+            });
+        });
+        $('#right').click(function(){
+            $('#slide'+pic).stop().fadeOut('fast', function(){
+                if(pic == 1) {
+                    pic = 4;
+                } else {
+                pic--;  
+                }
+                $('#slide'+pic).stop().fadeIn('fast');
+            });
+        });
+    });
+  </script>
+</head> 
+<body>
+    
+    <button id="musicButton" data-icon="a"> </button>
+    
+    <div class="slidecontainer">
+        <input type="range" min="0" max="100" value="50" class="slider" id="volume">
+    </div>
+    
+    <audio id="landMusic" loop>
+      <source src="sounds/Resonance.mp3" type="audio/mpeg">
+      Your browser does not support mp3 files.
+    </audio>
+    
+    <div class="bg">
+        <h1 id="vape">VaporWave</h1>
+    </div>
+    
+    <nav>
+        <ul>
+            <li>
+                <a href=".bg">Home</a>
+            </li>
+            <li>
+                <a href="#story">What&nbsp;is&nbsp;it?</a>
+            </li>
+            <li>
+                <a href="#aesthetic">Aesthetic</a>
+            </li>
+            <li>
+                <a href="#listen">Listen</a>
+            </li>
+        </ul>  
+        <p>Click songs coloured in pink to add them to the music player!</p>
+    </nav>
+
+    <section class="scroll1 wow">
+    </section>
+    
+    <div id="content">
+        <h1 id="story">What is it?</h1>
+        <p>
+            Vaporwave, maybe you've overheard some kids talking about it, or some not-so-kids, or maybe you already love it - either way, it's undoubtedly beautiful. It parodies genres like 
+            <a href="https://www.youtube.com/watch?v=6fJKlCUyhOs" target="_blank">Japanese Funk</a>, 
+            <a href="https://www.youtube.com/watch?v=DpBWUv_91ho" target="_blank">Jazz</a>, even 
+            <a href="https://www.youtube.com/watch?v=9v9-Nw4nAZg" target="_blank">Elevator music</a>, and adds samples from 80's hits. This, put through a lethargic-sounding filter, will take you on a nostalgic trip whether you like it or not.  
+        </p>
+        <p>
+            The movement was mainly popularised by an album 'Floral Shoppe' from artist Vektroid, featuring defining songs like '<a class="songlink" id="lisafrank">Lisa Frank 420/Modern Computing</a>'. After this album gained traction, it became an internet meme, causing this new-found love of Vaporwave to become widespread. Listeners then turned to other similar genres like Synthwave, and Chillwave, and even created a new genre: Simpsonwave, which capitalises even further on that feeling of nostalgia by combining vaporwave with scenes from the simpsons.
+        </p>
+        
+        <iframe width="520" height="315" src="https://www.youtube.com/embed/m_0qHRwU_sQ"></iframe>
+        
+        <p>
+            Vaporwave interests so many because the music, accompanied with 80's VHS-style graphics, leaves you missing an era in which you may never have even existed. It's repetitive, mostly depressing tunes chip away at your existence, and leave you longing for a simpler time. Ironically beautiful.   
+        </p>
+        <p>
+            It's not all sad though, there are some Vaporwave tracks which steer away from the depressing, and more toward the upbeat nostalgia. '<a class="songlink" id="cherrypepsi">Cherry Pepsi</a>' by Skylar Pence is a great example of this as it subtly achieves the Vaporwave effect, hidden behind a mask of funk.  
+        </p>
+    </div>
+    
+    <section class="scroll1 wow2">
+    </section>
+    
+    <div id="content">
+        <h1 id="aesthetic">AESTHETIC</h1>
+        <p>
+            While Vaporwave is able to communicate it's message through sound, it still owes much of it's success and popularity to the visuals, or, the '<span id="aes">aesthetics</span>'. These visuals define vaporwave, giving it the retro, sentimental look which compliments the music's similar qualities. These visuals range from ancient greek statues, to consumer-capitalsim, usually presented through a filter of VHS static, or glitch graphics. Japanese lettering is also commonly included in Vaporwave art, paying tribute to its roots. Here are some common examples. Why not listen to '<a class="songlink" id="modus">Modus Operandi</a>' by 18 Carat Affair to aid your viewing experience.
+        </p>
+        <div id="imageslide">
+            <button id="left">&#10094;</button>
+            <img class="slide" id="slide1" src="images/tokyo.gif" width="650px" height="600px"> 
+            <img class="slide" id="slide2" src="images/tokyo2.gif" width="650px" height="600px">
+            <img class="slide" id="slide3" src="images/statue.gif" width="650px" height="600px">
+            <img class="slide" id="slide4" src="images/playstation.gif" width="650px" height="600px">
+            <button id="right">&#10095;</button>
+        </div>
+        <p>There is a strong sense or irony present in the Vaporwave aesthetic, as although it exploded as an internet meme, it's still adored by the generation it so accurately represents. To many, the aesthetic is more than just a throw-back, but an identity.</p>
+    </div>
+    
+    <section class="scroll1 wow3">   
+    </section>
+    
+    <div id="content">
+        <h1 id="listen">Listen</h1>
+        <p>Ever since Vaporwave exploded on to the internet, countless artists have been making stunning music and visuals on a range of sites. Here's a list of great tracks to keep you feeling nostalgic.</p>
+        <ul id="songlist">
+            <li>
+                <p>Chuck Person - '<a class="songlink" id="endof">END OF LIFE ENTERTAINMENT SCENARIO 1</a>'</p>
+            </li>
+            <li>
+                <p>Eco Virtual - '<a class="songlink" id="tropical">Tropical Depression</a>'</p>
+            </li>
+            <li>
+                <p>Esprit - '<a class="songlink" id="summer">Summer Night</a>'</p>
+            </li>
+            <li>
+                <p>Internet Club - '<a class="songlink" id="wavetemple">Wave Temple</a>'</p>
+            </li>
+            <li>
+                <p>Vector Graphics - '<a class="songlink" id="destine">Destine</a>'</p>
+            </li>
+        </ul>
+        <hr>
+        <p>--COPYRIGHT NOTICE--</p>
+        <p>I do not own any of the GIFs, images, songs, or youtube videos linked or used in this project.</p>
+    </div>
+</body>
+</html>

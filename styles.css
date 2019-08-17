@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+@font-face{
+    font-family: vaporFont;
+    src: url(fonts/yeet.ttf) format('truetype');
+}
+
+@font-face{
+    font-family: yeet;
+    src: url(fonts/Vaporwave.ttf) format('truetype');
+}
+
+@font-face{
+    font-family: lunchTime;
+    src: url(fonts/lunchds.ttf) format('truetype');
+}
+
+@charset "UTF-8";
+
+@font-face{
+  font-family: "untitled-font-1";
+  src:url("fonts/untitled-font-1.eot");
+  src:url("fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
+    url("fonts/untitled-font-1.woff") format("woff"),
+    url("fonts/untitled-font-1.ttf") format("truetype"),
+    url("fonts/untitled-font-1.svg#untitled-font-1") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before{
+  font-family: "untitled-font-1" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before{
+  font-family: "untitled-font-1" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+}
+
+button{
+    color: #4196d3;
+    font-size: 40px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#musicButton{
+    position: fixed;
+    top: 5px;
+    left: 230px;
+}
+
+button:hover{
+    color: #ed78d3;
+}
+
+.slidecontainer{
+    position: fixed;
+    left: 210px;
+    top: 95px;
+    width: 95px;
+    transform: rotateZ(270deg);
+}
+
+.slider{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    background: rgb(212,191,251);
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    transform: rotate(270deg);
+    background: #4196d3;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider::-webkit-slider-thumb:hover{
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ed78d3;
+    cursor: pointer;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #f9def5;
+}
+
+.bg{
+    background-image: url(images/image1.jpg);
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#vape{
+    position: absolute;
+    display: block;
+    font-family: vaporFont;
+    color: #4196d3;
+    left: 15%;
+    top: 57%;
+    right: 70%;
+    letter-spacing: 40px;
+    font-size: 72px;
+}
+
+section.scroll1{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    height: 500px;
+}
+
+section.scroll1.wow{
+    background-image: url(stills/great.jpg);
+    height: 50%;
+}
+
+section.scroll1.wow2{
+    background-image: url(stills/wow.jpg);
+}
+
+section.scroll1.wow3{
+    background-image: url(stills/super.jpg);
+    background-position: 90px 0px;
+}
+
+section.scroll1.wow4{
+    background-image: url(stills/simp.jpg);
+}
+
+#content{
+    margin-left: 430px;
+    margin-right: 210px;
+    background-color: #f9def5;  
+}
+
+#content{
+    display: block;
+    text-align: center;
+    padding: 50px;
+}
+
+#content h1{
+    font-family: vaporFont;
+    text-align: left;
+    text-decoration: none;
+    font-size: 50px;
+    color: rgb(235,159,234);
+    letter-spacing: 20px;
+}
+
+#content p{
+    font-family: Inconsolata;
+    text-align: left;
+    font-size: 25px;
+    color: #4196d3;
+}
+
+#content a{
+    font-family: Inconsolata;
+    text-decoration-color: #4196d3;
+    font-size: 25px;
+    color: #4196d3;
+}
+
+#content .songlink{
+    cursor: pointer;
+    color: rgb(235,159,234);
+}
+
+#aes{
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: 10px;
+}
+
+#imageslide{ 
+  position: relative;
+}
+
+#content #imageslide .slide{
+    display: none;
+}
+
+#left{
+    position: absolute;
+    top: 50%;
+    left: 200px;
+}
+
+#right{
+    position: absolute;
+    top: 50%;
+    right: 200px;
+}
+
+#content #songlist{
+      color: #4196d3;
+}
+
+nav{
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ed78d3;
+    transition: 0.5s;
+    padding-top: 70px;
+}
+
+nav ul li{
+    list-style-type: none;
+    padding: 8px 23px 14px 1px;
+    position: relative;
+    left: -10px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-family: vaporFont;
+    font-size: 25px;
+    color: #f9def5;
+    display: block;
+    transition: 0.3s;
+}
+
+nav p{
+    list-style-type: none;
+    padding: 8px 23px 14px 1px;
+    position: inherit;
+    width: 220px;
+    left: 20px;
+    bottom: 0px;
+    text-decoration: none;
+    font-family: vaporFont;
+    font-size: 20px;
+    color: #f9def5;
+    display: block;
+    transition: 0.3s;
+}
+
+nav ul li a:hover{
+    color: #4196d3;
+}
+
+@media only screen and (max-width: 1000px){
+    #content{
+        margin-left: 220px;
+        margin-right: 0px;
+    }
+}
+@media only screen and (max-height: 460px){
+    nav p {
+        display: none;
+    }
+}
+@media only screen and (max-height: 880px){
+    #vape {
+        top: 60%;
+    }
+}
+@media only screen and (max-height: 880px){
+    #vape {
+        top: 60%;
+    }
+}
