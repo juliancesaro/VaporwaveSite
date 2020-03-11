@@ -68,7 +68,8 @@ button:hover {
 }
 
 #exit:hover {
-  color: #4196d3;
+  color: rgba(65, 150, 211, 0.4);
+  transition: all 0.6s ease-in-out;
 }
 
 #hamburger {
