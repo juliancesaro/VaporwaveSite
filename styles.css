@@ -107,9 +107,9 @@ html {
     font-family: vaporFont;
     color: #4196d3;
     left: 235px;
-    top: 50%;
+    top: 55%;
     letter-spacing: 40px;
-    font-size: 50px;
+    font-size: 100px;
     transition: all 0.6s ease-in-out;
   }
   #smallvape2 {
@@ -118,9 +118,9 @@ html {
     font-family: vaporFont;
     color: #4196d3;
     left: 235px;
-    top: 55%;
+    top: 60%;
     letter-spacing: 40px;
-    font-size: 50px;
+    font-size: 100px;
     transition: all 0.6s ease-in-out;
   }
   #bigvape {
@@ -233,11 +233,11 @@ html {
     transition: all 0.6s ease-in-out;
   }
   #smallvape1.vape.show {
-    left: 80px;
+    left: 120px;
     transition: all 0.6s ease-in-out;
   }
   #smallvape2.vape.show {
-    left: 80px;
+    left: 120px;
     transition: all 0.6s ease-in-out;
   }
 }
