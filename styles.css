@@ -55,13 +55,6 @@ button {
   cursor: pointer;
 }
 
-#hamburger {
-  position: fixed;
-  left: 10px;
-  top: 10px;
-  font-size: 25px;
-}
-
 #exit {
   color: #f9def5;
   position: relative;
@@ -136,7 +129,7 @@ html {
     left: 235px;
     top: 50%;
     letter-spacing: 40px;
-    font-size: 30px;
+    font-size: 50px;
     transition: all 0.6s ease-in-out;
   }
   #smallvape2 {
@@ -147,7 +140,7 @@ html {
     left: 235px;
     top: 55%;
     letter-spacing: 40px;
-    font-size: 30px;
+    font-size: 50px;
     transition: all 0.6s ease-in-out;
   }
   #bigvape {
@@ -157,6 +150,12 @@ html {
     text-align: center;
     padding: 50px;
     background-color: #f9def5;
+  }
+  #hamburger {
+    position: fixed;
+    left: 30px;
+    top: 30px;
+    font-size: 25px;
   }
   nav {
     height: 100%;
@@ -207,23 +206,23 @@ html {
   .slidecontainer {
     position: fixed;
     left: 210px;
-    top: 95px;
+    top: 115px;
     width: 95px;
     transform: rotateZ(270deg);
     transition: all 0.6s ease-in-out;
   }
   .slidecontainer.show {
-    left: 30px;
+    left: 50px;
     transition: all 0.6s ease-in-out;
   }
   .play {
     position: fixed;
-    top: 5px;
+    top: 25px;
     left: 230px;
     transition: all 0.6s ease-in-out;
   }
   .play.show {
-    left: 50px;
+    left: 70px;
     transition: all 0.6s ease-in-out;
   }
   #bigvape.vape.show {
@@ -264,6 +263,12 @@ html {
     margin-left: 430px;
     margin-right: 210px;
     background-color: #f9def5;
+  }
+  #hamburger {
+    position: fixed;
+    left: 10px;
+    top: 30px;
+    font-size: 25px;
   }
   nav {
     height: 100%;
