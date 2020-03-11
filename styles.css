@@ -71,26 +71,6 @@ button:hover {
   color: #ed78d3;
 }
 
-.slider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 15px;
-  background: rgb(212, 191, 251);
-  outline: none;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  transform: rotate(270deg);
-  background: #4196d3;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
 .slider::-webkit-slider-thumb:hover {
   -webkit-appearance: none;
   appearance: none;
@@ -149,13 +129,15 @@ html {
   #content {
     text-align: center;
     padding: 50px;
+    margin-left: 90px;
     background-color: #f9def5;
   }
   #hamburger {
     position: fixed;
     left: 30px;
     top: 30px;
-    font-size: 25px;
+    font-size: 70px;
+    transition: 0.3s;
   }
   nav {
     height: 100%;
@@ -206,23 +188,44 @@ html {
   .slidecontainer {
     position: fixed;
     left: 210px;
-    top: 115px;
-    width: 95px;
+    top: 150px;
+    width: 120px;
     transform: rotateZ(270deg);
     transition: all 0.6s ease-in-out;
   }
   .slidecontainer.show {
-    left: 50px;
+    left: 5px;
+    top: 250px;
     transition: all 0.6s ease-in-out;
+  }
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 25px;
+    background: rgb(212, 191, 251);
+    outline: none;
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 15px;
+    transform: rotate(270deg);
+    background: #4196d3;
+    cursor: pointer;
+    transition: 0.3s;
   }
   .play {
     position: fixed;
     top: 25px;
     left: 230px;
+    font-size: 70px;
     transition: all 0.6s ease-in-out;
   }
   .play.show {
-    left: 70px;
+    left: 25px;
+    top: 120px;
     transition: all 0.6s ease-in-out;
   }
   #bigvape.vape.show {
@@ -263,12 +266,6 @@ html {
     margin-left: 430px;
     margin-right: 210px;
     background-color: #f9def5;
-  }
-  #hamburger {
-    position: fixed;
-    left: 10px;
-    top: 30px;
-    font-size: 25px;
   }
   nav {
     height: 100%;
@@ -317,25 +314,28 @@ html {
     width: 95px;
     transform: rotateZ(270deg);
   }
-  .slidecontainer.show {
-    left: 30px;
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    background: rgb(212, 191, 251);
+    outline: none;
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    transform: rotate(270deg);
+    background: #4196d3;
+    cursor: pointer;
+    transition: 0.3s;
   }
   .play {
     position: fixed;
     top: 5px;
     left: 230px;
-  }
-  .play.show {
-    left: 50px;
-  }
-  #bigvape.vape.show {
-    left: 100px;
-  }
-  #smallvape1.vape.show {
-    left: 80px;
-  }
-  #smallvape2.vape.show {
-    left: 80px;
   }
 }
 
