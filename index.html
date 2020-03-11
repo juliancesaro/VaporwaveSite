@@ -3,12 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <link href="styles.css" rel="stylesheet" />
-    <link href="fonts/fontStyles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="icon" href="images/icon.jpg" />
     <title>Vaporwave</title>
     <script src="jquery-3.3.1.min.js"></script>
     <script>
       $(document).ready(function() {
+        if ($(window).width() > 768) {
+          $(".menu").toggleClass("show");
+          $(".play").toggleClass("show");
+          $(".slidecontainer").toggleClass("show");
+          $(".vape").toggleClass("show");
+        }
         //tells nav links where to scroll to
         $("nav ul li a").click(function(e) {
           e.preventDefault();
@@ -23,6 +32,20 @@
                 duration: 900
               }
             );
+        });
+
+        $("#exit").click(function() {
+          $(".menu").toggleClass("show");
+          $(".play").toggleClass("show");
+          $(".slidecontainer").toggleClass("show");
+          $(".vape").toggleClass("show");
+        });
+
+        $("#hamburger").click(function() {
+          $(".menu").toggleClass("show");
+          $(".play").toggleClass("show");
+          $(".slidecontainer").toggleClass("show");
+          $(".vape").toggleClass("show");
         });
 
         //makes gifs only run when scrolling to not distract reading
@@ -119,9 +142,9 @@
     </script>
   </head>
   <body>
-    <button id="musicButton" data-icon="a"></button>
-
-    <div class="slidecontainer">
+    <button id="hamburger" class="fa fa-bars"></button>
+    <button class="play show" id="musicButton" data-icon="a"></button>
+    <div class="slidecontainer show">
       <input
         type="range"
         min="0"
@@ -138,25 +161,30 @@
     </audio>
 
     <div class="bg">
-      <h1 id="vape">VaporWave</h1>
+      <h1 class="vape show" id="bigvape">VaporWave</h1>
+      <h1 class="vape show" id="smallvape1">Vapor</h1>
+      <h1 class="vape show" id="smallvape2">Wave</h1>
     </div>
 
-    <nav>
-      <ul>
-        <li>
-          <a href=".bg">Home</a>
-        </li>
-        <li>
-          <a href="#story">What&nbsp;is&nbsp;it?</a>
-        </li>
-        <li>
-          <a href="#aesthetic">Aesthetic</a>
-        </li>
-        <li>
-          <a href="#listen">Listen</a>
-        </li>
-      </ul>
-      <p>Click songs coloured in pink to add them to the music player!</p>
+    <nav class="menu show">
+      <div>
+        <button id="exit" class="fa fa-times"></button>
+        <ul>
+          <li>
+            <a href=".bg">Home</a>
+          </li>
+          <li>
+            <a href="#story">What&nbsp;is&nbsp;it?</a>
+          </li>
+          <li>
+            <a href="#aesthetic">Aesthetic</a>
+          </li>
+          <li>
+            <a href="#listen">Listen</a>
+          </li>
+        </ul>
+        <p>Click songs coloured in pink to add them to the music player!</p>
+      </div>
     </nav>
 
     <section class="scroll1 wow"></section>

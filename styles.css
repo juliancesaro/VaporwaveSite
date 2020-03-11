@@ -33,7 +33,6 @@
   font-weight: normal !important;
   font-variant: normal !important;
   text-transform: none !important;
-  speak: none;
   line-height: 1;
 }
 
@@ -44,7 +43,6 @@
   font-weight: normal !important;
   font-variant: normal !important;
   text-transform: none !important;
-  speak: none;
   line-height: 1;
 }
 
@@ -55,25 +53,29 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-#musicButton {
+#hamburger {
   position: fixed;
-  top: 5px;
-  left: 230px;
+  left: 10px;
+  top: 10px;
+  font-size: 25px;
+}
+
+#exit {
+  color: #f9def5;
+  position: relative;
+  top: 25px;
+  left: 170px;
+  font-size: 20px;
+}
+
+#exit:hover {
+  color: #4196d3;
 }
 
 button:hover {
   color: #ed78d3;
-}
-
-.slidecontainer {
-  position: fixed;
-  left: 210px;
-  top: 95px;
-  width: 95px;
-  transform: rotateZ(270deg);
 }
 
 .slider {
@@ -119,20 +121,217 @@ html {
   background-image: url(images/image1.jpg);
   height: 100%;
   width: 100%;
+  background-position: center center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#vape {
-  position: absolute;
-  display: block;
-  font-family: vaporFont;
-  color: #4196d3;
-  left: 15%;
-  top: 70%;
-  right: 70%;
-  letter-spacing: 40px;
-  font-size: 72px;
+@media only screen and (max-width: 768px) {
+  #smallvape1 {
+    position: absolute;
+    display: block;
+    font-family: vaporFont;
+    color: #4196d3;
+    left: 235px;
+    top: 50%;
+    letter-spacing: 40px;
+    font-size: 30px;
+    transition: all 0.6s ease-in-out;
+  }
+  #smallvape2 {
+    position: absolute;
+    display: block;
+    font-family: vaporFont;
+    color: #4196d3;
+    left: 235px;
+    top: 55%;
+    letter-spacing: 40px;
+    font-size: 30px;
+    transition: all 0.6s ease-in-out;
+  }
+  #bigvape {
+    display: none;
+  }
+  #content {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9def5;
+  }
+  nav {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ed78d3;
+    transition: all 0.6s ease-in-out;
+  }
+  nav ul {
+    padding-top: 70px;
+  }
+  nav ul li {
+    list-style-type: none;
+    padding: 8px 23px 14px 1px;
+    position: relative;
+    left: -10px;
+    transition: all 0.5s ease;
+  }
+  nav ul li a {
+    text-decoration: none;
+    font-family: vaporFont;
+    font-size: 25px;
+    color: #f9def5;
+    display: block;
+    transition: all 0.5s ease;
+  }
+  nav p {
+    position: relative;
+    padding: 8px 23px 14px 1px;
+    width: 215px;
+    left: 15px;
+    top: 5%;
+    font-family: vaporFont;
+    font-size: 20px;
+    color: #f9def5;
+    transition: all 0.5s ease;
+  }
+  nav ul li a:hover {
+    color: #4196d3;
+  }
+  .menu.show {
+    left: -220px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.6s ease-in-out;
+  }
+  .slidecontainer {
+    position: fixed;
+    left: 210px;
+    top: 95px;
+    width: 95px;
+    transform: rotateZ(270deg);
+    transition: all 0.6s ease-in-out;
+  }
+  .slidecontainer.show {
+    left: 30px;
+    transition: all 0.6s ease-in-out;
+  }
+  .play {
+    position: fixed;
+    top: 5px;
+    left: 230px;
+    transition: all 0.6s ease-in-out;
+  }
+  .play.show {
+    left: 50px;
+    transition: all 0.6s ease-in-out;
+  }
+  #bigvape.vape.show {
+    left: 100px;
+    transition: all 0.6s ease-in-out;
+  }
+  #smallvape1.vape.show {
+    left: 80px;
+    transition: all 0.6s ease-in-out;
+  }
+  #smallvape2.vape.show {
+    left: 80px;
+    transition: all 0.6s ease-in-out;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #bigvape {
+    position: absolute;
+    display: block;
+    font-family: vaporFont;
+    color: #4196d3;
+    left: 235px;
+    top: 57%;
+    letter-spacing: 40px;
+    font-size: 72px;
+  }
+  #smallvape1 {
+    display: none;
+  }
+  #smallvape2 {
+    display: none;
+  }
+  #content {
+    display: block;
+    text-align: center;
+    padding: 50px;
+    margin-left: 430px;
+    margin-right: 210px;
+    background-color: #f9def5;
+  }
+  nav {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ed78d3;
+  }
+  nav ul {
+    padding-top: 70px;
+  }
+  nav ul li {
+    list-style-type: none;
+    padding: 8px 23px 14px 1px;
+    position: relative;
+    left: -10px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    font-family: vaporFont;
+    font-size: 25px;
+    color: #f9def5;
+    display: block;
+  }
+  nav p {
+    position: relative;
+    padding: 8px 23px 14px 1px;
+    width: 215px;
+    left: 15px;
+    top: 5%;
+    font-family: vaporFont;
+    font-size: 20px;
+    color: #f9def5;
+  }
+  nav ul li a:hover {
+    color: #4196d3;
+  }
+  #exit {
+    display: none;
+  }
+  .slidecontainer {
+    position: fixed;
+    left: 210px;
+    top: 95px;
+    width: 95px;
+    transform: rotateZ(270deg);
+  }
+  .slidecontainer.show {
+    left: 30px;
+  }
+  .play {
+    position: fixed;
+    top: 5px;
+    left: 230px;
+  }
+  .play.show {
+    left: 50px;
+  }
+  #bigvape.vape.show {
+    left: 100px;
+  }
+  #smallvape1.vape.show {
+    left: 80px;
+  }
+  #smallvape2.vape.show {
+    left: 80px;
+  }
 }
 
 section.scroll1 {
@@ -148,31 +347,22 @@ section.scroll1 {
 section.scroll1.wow {
   background-image: url(stills/great.jpg);
   height: 50%;
+  background-position: center center;
 }
 
 section.scroll1.wow2 {
   background-image: url(stills/wow.jpg);
+  background-position: center center;
 }
 
 section.scroll1.wow3 {
   background-image: url(stills/super.jpg);
-  background-position: 90px 0px;
+  background-position: center center;
 }
 
 section.scroll1.wow4 {
   background-image: url(stills/simp.jpg);
-}
-
-#content {
-  margin-left: 430px;
-  margin-right: 210px;
-  background-color: #f9def5;
-}
-
-#content {
-  display: block;
-  text-align: center;
-  padding: 50px;
+  background-position: center center;
 }
 
 #content h1 {
@@ -242,70 +432,18 @@ section.scroll1.wow4 {
   color: #4196d3;
 }
 
-nav {
-  height: 100%;
-  width: 220px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #ed78d3;
-  transition: 0.5s;
-  padding-top: 70px;
-}
-
-nav ul li {
-  list-style-type: none;
-  padding: 8px 23px 14px 1px;
-  position: relative;
-  left: -10px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  font-family: vaporFont;
-  font-size: 25px;
-  color: #f9def5;
-  display: block;
-  transition: 0.3s;
-}
-
-nav p {
-  list-style-type: none;
-  padding: 8px 23px 14px 1px;
-  position: inherit;
-  width: 220px;
-  left: 20px;
-  bottom: 0px;
-  text-decoration: none;
-  font-family: vaporFont;
-  font-size: 20px;
-  color: #f9def5;
-  display: block;
-  transition: 0.3s;
-}
-
-nav ul li a:hover {
-  color: #4196d3;
-}
-
-@media only screen and (max-width: 1000px) {
-  #content {
-    margin-left: 220px;
-    margin-right: 0px;
-  }
-}
 @media only screen and (max-height: 460px) {
   nav p {
     display: none;
   }
 }
 @media only screen and (max-height: 880px) {
-  #vape {
+  .vape {
     top: 60%;
   }
 }
 @media only screen and (max-height: 880px) {
-  #vape {
+  .vape {
     top: 60%;
   }
 }
