@@ -11,134 +11,132 @@
     <title>Vaporwave</title>
     <script src="jquery-3.3.1.min.js"></script>
     <script>
-      $(document).ready(function() {
+      $(document).ready(function () {
         if ($(window).width() > 1000) {
-          $(".menu").toggleClass("show");
-          $(".play").toggleClass("show");
-          $(".slidecontainer").toggleClass("show");
-          $(".vape").toggleClass("show");
+          $(".menu").toggleClass("show")
+          $(".play").toggleClass("show")
+          $(".slidecontainer").toggleClass("show")
+          $(".vape").toggleClass("show")
         }
         //tells nav links where to scroll to
-        $("nav ul li a").click(function(e) {
-          e.preventDefault();
-          var target = $($(this).attr("href")).position().top;
-          $("html,body")
-            .stop()
-            .animate(
-              {
-                scrollTop: target
-              },
-              {
-                duration: 900
-              }
-            );
-        });
+        $("nav ul li a").click(function (e) {
+          e.preventDefault()
+          var target = $($(this).attr("href")).position().top
+          $("html,body").stop().animate(
+            {
+              scrollTop: target,
+            },
+            {
+              duration: 900,
+            }
+          )
+        })
 
-        $("#exit").click(function() {
-          $(".menu").toggleClass("show");
-          $(".play").toggleClass("show");
-          $(".slidecontainer").toggleClass("show");
-          $(".vape").toggleClass("show");
-        });
+        $("#exit").click(function () {
+          $(".menu").toggleClass("show")
+          $(".play").toggleClass("show")
+          $(".slidecontainer").toggleClass("show")
+          $(".vape").toggleClass("show")
+        })
 
-        $("#hamburger").click(function() {
-          $(".menu").toggleClass("show");
-          $(".play").toggleClass("show");
-          $(".slidecontainer").toggleClass("show");
-          $(".vape").toggleClass("show");
-        });
+        $("#hamburger").click(function () {
+          $(".menu").toggleClass("show")
+          $(".play").toggleClass("show")
+          $(".slidecontainer").toggleClass("show")
+          $(".vape").toggleClass("show")
+        })
 
         //makes gifs only run when scrolling to not distract reading
-        $(window).on("scroll", function() {
-          $(".wow").css("background-image", "url(images/great.gif)");
-          $(".wow2").css("background-image", "url(images/wow.gif)");
-          $(".wow3").css("background-image", "url(images/super.gif)");
-          $(".wow4").css("background-image", "url(images/simp.gif)");
-        });
+        $(window).on("scroll", function () {
+          $(".wow").css("background-image", "url(images/great.gif)")
+          $(".wow2").css("background-image", "url(images/wow.gif)")
+          $(".wow3").css("background-image", "url(images/super.gif)")
+          $(".wow4").css("background-image", "url(images/simp.gif)")
+        })
 
         //creates a timer to check when page is not being scrolled
         //if  not, gif becomes a .jpg
-        (function() {
-          var scrollTimer;
-          $(window).bind("scroll", function() {
-            clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(scrollRefresh, 150);
-          });
-          var scrollRefresh = function() {
-            $(".wow").css("background-image", "url(stills/great.jpg)");
-            $(".wow2").css("background-image", "url(stills/wow.jpg)");
-            $(".wow3").css("background-image", "url(stills/super.jpg)");
-            $(".wow4").css("background-image", "url(stills/simp.jpg)");
-          };
-        })();
+        ;(function () {
+          var scrollTimer
+          $(window).bind("scroll", function () {
+            clearTimeout(scrollTimer)
+            scrollTimer = setTimeout(scrollRefresh, 150)
+          })
+          var scrollRefresh = function () {
+            $(".wow").css("background-image", "url(stills/great.jpg)")
+            $(".wow2").css("background-image", "url(stills/wow.jpg)")
+            $(".wow3").css("background-image", "url(stills/super.jpg)")
+            $(".wow4").css("background-image", "url(stills/simp.jpg)")
+          }
+        })()
 
         //ensures volume matches value of slider
-        $("#landMusic").prop("volume", 0.5);
+        $("#landMusic").prop("volume", 0.5)
 
         //switch between pause/play icons and play/pause sounds on click
         function handler1() {
-          $("#landMusic").trigger("play");
-          $(this).attr("data-icon", "e");
-          $(this).one("click", handler2);
+          $("#landMusic").trigger("play")
+          $(this).attr("data-icon", "e")
+          $(this).one("click", handler2)
         }
         function handler2() {
-          $("#landMusic").trigger("pause");
-          $(this).attr("data-icon", "a");
-          $(this).one("click", handler1);
+          $("#landMusic").trigger("pause")
+          $(this).attr("data-icon", "a")
+          $(this).one("click", handler1)
         }
-        $("#musicButton").one("click", handler1);
+        $("#musicButton").one("click", handler1)
 
         //change sound linked to the play button, uses element id as song name
-        $(".songlink").click(function() {
-          $("#musicButton").attr("data-icon", "a");
-          $("#musicButton").one("click", handler1);
-          $("#landMusic").trigger("pause");
-          var name = $(this).attr("id");
-          $("#landMusic").attr("src", "sounds/" + name + ".mp3");
-        });
+        $(".songlink").click(function () {
+          $("#musicButton").attr("data-icon", "a")
+          $("#musicButton").one("click", handler1)
+          $("#landMusic").trigger("pause")
+          var name = $(this).attr("id")
+          $("#landMusic").attr("src", "sounds/" + name + ".mp3")
+        })
 
         //changes sound volume based on slider value
-        $(".slider").on("change", function() {
-          $("#landMusic").prop("volume", this.value / 100);
-        });
+        $(".slider").on("change", function () {
+          $("#landMusic").prop("volume", this.value / 100)
+        })
 
         //sets var pic to 1
-        var pic = 1;
+        var pic = 1
 
         //shows the first image using string concatenation
-        $("#slide" + pic).show();
+        $("#slide" + pic).show()
 
         //when left or right button is pressed, current image is faded out, pic is increased by 1,
         //and next image is faded in
-        $("#left").click(function() {
+        $("#left").click(function () {
           $("#slide" + pic)
             .stop()
-            .fadeOut("fast", function() {
+            .fadeOut("fast", function () {
               if (pic == 4) {
-                pic = 1;
+                pic = 1
               } else {
-                pic++;
+                pic++
               }
               $("#slide" + pic)
                 .stop()
-                .fadeIn("fast");
-            });
-        });
-        $("#right").click(function() {
+                .fadeIn("fast")
+            })
+        })
+        $("#right").click(function () {
           $("#slide" + pic)
             .stop()
-            .fadeOut("fast", function() {
+            .fadeOut("fast", function () {
               if (pic == 1) {
-                pic = 4;
+                pic = 4
               } else {
-                pic--;
+                pic--
               }
               $("#slide" + pic)
                 .stop()
-                .fadeIn("fast");
-            });
-        });
-      });
+                .fadeIn("fast")
+            })
+        })
+      })
     </script>
   </head>
   <body>
@@ -217,8 +215,8 @@
         causing this new-found love of Vaporwave to become widespread. Listeners
         then turned to other similar genres like Synthwave, and Chillwave, and
         even created a new genre: Simpsonwave, which capitalises even further on
-        that feeling of nostalgia by combining vaporwave with scenes from the
-        simpsons.
+        that feeling of nostalgia by combining vaporwave with scenes from The
+        Simpsons.
       </p>
 
       <iframe
@@ -230,7 +228,7 @@
       <p>
         Vaporwave interests so many because the music, accompanied with 80's
         VHS-style graphics, leaves you missing an era in which you may never
-        have even existed. It's repetitive, mostly depressing tunes chip away at
+        have even existed. Its repetitive, mostly depressing tunes chip away at
         your existence, and leave you longing for a simpler time. Ironically
         beautiful.
       </p>
